@@ -2,6 +2,9 @@
 
 using namespace std;
 
+/*
+ * Remove patr string between delimeters: firstDelimeter, secondDelimeter.
+ */
 void removeBetweenDelimeters(string& sourceStr, string firstDelimeter, string secondDelimeter)
 {
 	string::iterator it = sourceStr.begin();

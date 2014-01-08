@@ -1,6 +1,3 @@
-/*
- * Command-line options: filename
- */
 #include "stdafx.h"
 #include <iostream>
 
@@ -8,15 +5,9 @@ using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	if (argc < 2)
-	{
-		cout << "Wrong number parameters!\nPress any key for exit" << endl;
-		cin.get();
-		return EXIT_FAILURE;
-		//argv[1] = L"C:\\Program Files\\Google\\cleaner_comments.cpp";
-	}
-
-	TCHAR* fileName = argv[1];
+	cout << "Enter the name of the source file" << endl;
+	TCHAR* fileName = new TCHAR[MAX_PATH];
+	wcin.getline(fileName, MAX_PATH, '\n');
 	HANDLE fileHandler = CreateFile(fileName, GENERIC_READ | GENERIC_WRITE, 0,
 			NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL , NULL);
 	if (fileHandler != INVALID_HANDLE_VALUE )
@@ -36,4 +27,3 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	return EXIT_SUCCESS;
 }
-

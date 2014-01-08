@@ -4,10 +4,16 @@
 
 using namespace std;
 
-TCHAR* removeComment(TCHAR* sourceFile, HANDLE sourceFileHandler)
+/*
+ * Remove comments from file, which is described filename sourceFileName and 
+ * handler sourceFileHandler. Generate file without comment with the name 
+ * of the form: sourceFileName + result.cpp. Return sourceFileName + result.cpp.
+ * If error return NULL, and display error message in stderr.
+ */
+TCHAR* removeComment(TCHAR* sourceFileName, HANDLE sourceFileHandler)
 {
 	TCHAR* destinationFileName = NULL;
-	wstring* resultFileName = new wstring(sourceFile);
+	wstring* resultFileName = new wstring(sourceFileName);
 	resultFileName->append(L"result.cpp");
 	destinationFileName = (TCHAR*)resultFileName->c_str();
 
