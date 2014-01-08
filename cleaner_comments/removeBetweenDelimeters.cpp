@@ -5,7 +5,7 @@ using namespace std;
 /*
  * Remove patr string between delimeters: firstDelimeter, secondDelimeter.
  */
-void removeBetweenDelimeters(string& sourceStr, string firstDelimeter, string secondDelimeter)
+void removeBetweenDelimeters(string& sourceStr, string firstDelimeter, string secondDelimeter, bool needDeleteSecondDelimeter)
 {
 	string::iterator it = sourceStr.begin();
 
@@ -15,7 +15,14 @@ void removeBetweenDelimeters(string& sourceStr, string firstDelimeter, string se
 		size_t endOneLineComment = sourceStr.find(secondDelimeter, findIndex);
 		if (endOneLineComment != string::npos)
 		{
-			sourceStr.erase(sourceStr.begin() + findIndex, sourceStr.begin() + endOneLineComment + secondDelimeter.size());
+			if (needDeleteSecondDelimeter)
+			{
+				sourceStr.erase(sourceStr.begin() + findIndex, sourceStr.begin() + endOneLineComment + secondDelimeter.size());
+			}
+			else
+			{
+				sourceStr.erase(sourceStr.begin() + findIndex, sourceStr.begin() + endOneLineComment);
+			}
 		}
 		findIndex = sourceStr.find(firstDelimeter, 0);
 	}

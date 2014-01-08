@@ -49,7 +49,7 @@ TCHAR* removeComment(TCHAR* sourceFileName, HANDLE sourceFileHandler)
 			}
 
 			string *portion = new string(buffer, bufferSize);
-			removeBetweenDelimeters(*portion, "//", "\n");
+			removeBetweenDelimeters(*portion, "//", "\n", false);
 			removeBetweenDelimeters(*portion, "/*", "*/");
 
 			WriteFile(destinationFileHandler, portion->c_str(), portion->size() * sizeof(portion->at(0)), &countReadBytes, NULL);

@@ -12,5 +12,4 @@
 #include<Windows.h>
 
 TCHAR* removeComment(TCHAR* sourceFile, HANDLE sourceFileHandler);
-void removeBetweenDelimeters(std::string& sourceStr, std::string firstDelimeter, std::string secondDelimeter);
-// TODO: reference additional headers your program requires here
+void removeBetweenDelimeters(std::string& sourceStr, std::string firstDelimeter, std::string secondDelimeter, bool needDeleteSecondDelimeter = true);
