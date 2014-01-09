@@ -8,7 +8,7 @@
  * of the form: sourceFileName + result.cpp. Return sourceFileName + result.cpp.
  * If error return NULL, and display error message in stderr.
  */
-std::wstring* removeComment(TCHAR* sourceFileName, HANDLE sourceFileHandler)
+std::wstring* removeComment(const TCHAR* sourceFileName, const HANDLE sourceFileHandler)
 {
     std::wstring* resultFileName = new std::wstring(sourceFileName);
     resultFileName->append(L"_result.cpp");
@@ -58,6 +58,7 @@ std::wstring* removeComment(TCHAR* sourceFileName, HANDLE sourceFileHandler)
             delete portion;
         }
         delete[] buffer;
+        CloseHandle(destinationFileHandler);
     }
     else
     {

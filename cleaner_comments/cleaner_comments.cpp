@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include <iostream>
 
-int _tmain(int argc, _TCHAR* argv[])
+int _tmain()
 {
     std::cout << "Enter the name of the source file" << std::endl;
     TCHAR* fileName = new TCHAR[MAX_PATH];

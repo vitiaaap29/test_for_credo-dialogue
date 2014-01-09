@@ -3,7 +3,7 @@
 /*
  * Remove patr string between delimeters: firstDelimeter, secondDelimeter.
  */
-void removeBetweenDelimeters(std::string& sourceStr, std::string firstDelimeter, std::string secondDelimeter, bool needDeleteSecondDelimeter)
+void removeBetweenDelimeters(std::string& sourceStr, const std::string firstDelimeter, const std::string secondDelimeter, const bool needDeleteSecondDelimeter)
 {
     std::string::iterator it = sourceStr.begin();
 
@@ -21,7 +21,11 @@ void removeBetweenDelimeters(std::string& sourceStr, std::string firstDelimeter,
             {
                 sourceStr.erase(sourceStr.begin() + findIndex, sourceStr.begin() + endOneLineComment);
             }
+            findIndex = sourceStr.find(firstDelimeter, 0);
         }
-        findIndex = sourceStr.find(firstDelimeter, 0);
+        else
+        {
+            findIndex = std::string::npos;
+        }
     }
 }

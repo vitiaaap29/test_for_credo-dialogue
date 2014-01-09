@@ -1,4 +1,4 @@
 #include "stdafx.h"
 
-std::wstring* removeComment(TCHAR* sourceFileName, HANDLE sourceFileHandler);
-void removeBetweenDelimeters(std::string& sourceStr, std::string firstDelimeter, std::string secondDelimeter, bool needDeleteSecondDelimeter = true);
+std::wstring* removeComment(const TCHAR* sourceFileName, const HANDLE sourceFileHandler);
+void removeBetweenDelimeters(std::string& sourceStr, const std::string firstDelimeter, const std::string secondDelimeter, const bool needDeleteSecondDelimeter = true);
