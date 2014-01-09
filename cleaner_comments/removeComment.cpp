@@ -46,7 +46,7 @@ std::wstring* removeComment(const TCHAR* sourceFileName, const HANDLE sourceFile
             }
 
             std::string *portion = new std::string(buffer, bufferSize);
-            removeBetweenDelimeters(*portion, "//", "\n", false);
+            removeBetweenDelimeters(*portion, "//", "\r", false);
             removeBetweenDelimeters(*portion, "/*", "*/");
 
             WriteFile(destinationFileHandler, portion->c_str(), portion->size() * sizeof(portion->at(0)), &countReadBytes, NULL);
